@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour {
 
@@ -11,6 +12,8 @@ public class PlayerController : MonoBehaviour {
 
 	[SerializeField] private LayerMask ground;
 	[SerializeField] private Transform groundCheck;
+
+    public Camera cam;
 
 	const float groundedRadius = .3f;
 	private bool isGrounded;
@@ -22,6 +25,8 @@ public class PlayerController : MonoBehaviour {
 
 	public UnityEvent IsOnLandEvent;
 
+	public Interactable focus;
+
 	void Awake ()
 	{
 		rb2D = GetComponent<Rigidbody2D>();
@@ -29,6 +34,38 @@ public class PlayerController : MonoBehaviour {
 		if (IsOnLandEvent == null)
 		{
 			IsOnLandEvent = new UnityEvent();
+		}
+	}
+
+	void Update ()
+	{
+		if (EventSystem.current.IsPointerOverGameObject())
+			return;
+
+		if (Input.GetMouseButtonDown(0))
+		{
+			Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+
+			if (Physics.Raycast(ray, out hit, 100))
+			{
+				RemoveFocus();
+			}
+		}
+
+		if (Input.GetMouseButtonDown(1))
+		{
+			Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+
+			if (Physics.Raycast(ray, out hit, 100))
+			{
+				Interactable interactable = hit.collider.GetComponent<Interactable>();
+				if (interactable != null)
+				{
+					SetFocus(interactable);
+				}
+			}
 		}
 	}
 
@@ -82,6 +119,31 @@ public class PlayerController : MonoBehaviour {
 		Vector3 scale = transform.localScale;
 		scale.x *= -1;
 		transform.localScale = scale;
+	}
+
+	void SetFocus (Interactable newFocus)
+	{
+		if (newFocus != focus)
+		{
+			if (focus != null)
+				focus.OnDefocused();
+			
+			focus = newFocus;
+
+			// Open info UI about the object. Maybe this should be outside the if loop!
+		}
+
+		newFocus.OnFocused(transform);
+	}
+
+	void RemoveFocus ()
+	{
+		if (focus != null)
+			focus.OnDefocused();
+
+		focus = null;
+
+		// Close the info UI
 	}
 
 }
