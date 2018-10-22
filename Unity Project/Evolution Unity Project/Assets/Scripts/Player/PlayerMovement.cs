@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float speed = 60f;
 
 	float horiMove = 0f;
+
 	bool isJumping = false;
 
 	// This here is called every frame
