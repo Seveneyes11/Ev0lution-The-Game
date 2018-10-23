@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -942,6 +942,10 @@ GameObject:
   - component: {fileID: 943906687}
   - component: {fileID: 943906688}
   - component: {fileID: 943906689}
+  - component: {fileID: 943906690}
+  - component: {fileID: 943906693}
+  - component: {fileID: 943906692}
+  - component: {fileID: 943906691}
   m_Layer: 5
   m_Name: Inventory Slots
   m_TagString: Untagged
@@ -1015,6 +1019,63 @@ MonoBehaviour:
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &943906690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943906686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e5d0ac2d732044982b3e6513803807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsParent: {fileID: 1312371511}
+  inventoryUI: {fileID: 1312371510}
+--- !u!114 &943906691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943906686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e5d0ac2d732044982b3e6513803807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsParent: {fileID: 943906687}
+  inventoryUI: {fileID: 1312371510}
+--- !u!114 &943906692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943906686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e143aef15098b4da1bc1593477ad08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  removeButton: {fileID: 0}
+  itemMenu: {fileID: 0}
+--- !u!114 &943906693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943906686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d441bc9a9ebd774c8752742f6544754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  space: 15
+  items: []
 --- !u!1 &1065062579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,6 +1981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1312371511}
   - component: {fileID: 1312371512}
+  - component: {fileID: 1312371513}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -1955,6 +2017,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312371510}
   m_CullTransparentMesh: 0
+--- !u!114 &1312371513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312371510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e5d0ac2d732044982b3e6513803807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsParent: {fileID: 943906687}
+  inventoryUI: {fileID: 0}
 --- !u!1 &1367121568
 GameObject:
   m_ObjectHideFlags: 0
