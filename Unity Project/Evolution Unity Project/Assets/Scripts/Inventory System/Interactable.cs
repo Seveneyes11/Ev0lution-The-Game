@@ -15,9 +15,19 @@ public class Interactable : MonoBehaviour {
 
 	}
 
+    public virtual void OpenPanel (Interactable interactable)
+    {
+
+    }
+
 	void Update ()
 	{
-        Interact();
+        //Interact();
+        if (!hasInteracted)
+        {
+            OpenPanel(this);
+            hasInteracted = true;
+        }
 		if(isFocus && !hasInteracted)
 		{
 			float distance = Vector3.Distance(player.position, interactionTransform.position);

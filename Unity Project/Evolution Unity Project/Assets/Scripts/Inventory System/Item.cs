@@ -4,6 +4,7 @@
 public class Item : ScriptableObject {
 
 	new public string name = "New Item";
+    new public string description = "Description";
 	public Sprite icon = null;
 	public bool isDefaultItem = false;
 

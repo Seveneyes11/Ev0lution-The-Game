@@ -17,6 +17,13 @@ public class ItemPickup : Interactable {
 
 		if (wasPickedUp)
 			Destroy(gameObject);
-	}	
+	}
+
+    public override void OpenPanel (Interactable interactable)
+    {
+        //base.OpenPanel();
+
+        ItemInfo.instance.OpenInfoPanel(item, interactable);
+    }
 
 }
